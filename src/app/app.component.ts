@@ -16,7 +16,7 @@ export class AppComponent implements OnInit{
 
   ngOnInit() {
     this.pushnotificationservice.RegisterNotification();
-    this.pushnotificationservice.UpdateNotification();
+    // this.pushnotificationservice.UpdateNotification();
 }
 
 }

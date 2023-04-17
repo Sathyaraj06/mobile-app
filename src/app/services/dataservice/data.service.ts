@@ -1,7 +1,6 @@
 import { environment } from 'src/environments/environment';
 import { map } from 'rxjs/operators';
 import { HttpClient } from '@angular/common/http';
-import { CryptoJsService } from '../collections/crypto.service';
 import { Injectable } from '@angular/core'
 import { BehaviorSubject, of, Observable } from 'rxjs';
 import { Storage } from '@capacitor/storage';
@@ -15,27 +14,12 @@ export class CommonDataService {
     profile: BehaviorSubject<any> = new BehaviorSubject<any>({});
     notifications: BehaviorSubject<any[]> = new BehaviorSubject<any[]>([]);
 
-    constructor(private cryptoservice: CryptoJsService, private http: HttpClient) {
-        // this.initEnvironment();
+    constructor() {
     }
 
     logoutSession(){
         this.profile.next({});
     }
-
-    private async initEnvironment() {
-        // const client = new AppConfigurationClient(environment.AzureAppConfiguration);
-        // const sampleKeys = await client.listConfigurationSettings({
-        //   keyFilter: "dashboardui:instrumentationKey,url:chathub,url:dashboardapi,storage:blob"
-        // });
-        // console.log(await sampleKeys)
-        // for await (const setting of sampleKeys) {
-        //   this.settings[setting.key.split(':')[1]] = setting.value;
-        //   // console.log(`${setting.key} : ${setting.value}`);
-        // }
-
-        // console.log(this.settings)
-      }
 
     async getAzureAppConfiguration(key:string){
         const client = new AppConfigurationClient(environment.AzureAppConfiguration);
@@ -92,31 +76,31 @@ export class CommonDataService {
 
     getPartitionKey() {
         return Storage.get({ key: 'profile' }).then((x: any) => {
-            return JSON.parse(x.value)?.partitionKey || '';
+            return JSON.parse(x.value)?.partitionKey || 'test-partition-key';
         });
     }
 
     getOrganization() {
         return Storage.get({ key: 'profile' }).then((x: any) => {
-            return JSON.parse(x.value)?.organization || '';
+            return JSON.parse(x.value)?.organization || 'test-organization';
         });
     }
 
     getOrganizationId() {
         return Storage.get({ key: 'profile' }).then((x: any) => {
-            return JSON.parse(x.value)?.organizationId || '';
+            return JSON.parse(x.value)?.organizationId || 'test-organizationid';
         });
     }
 
     getEmail() {
         return Storage.get({ key: 'profile' }).then((x: any) => {
-            return JSON.parse(x.value)?.email || '';
+            return JSON.parse(x.value)?.email || 'test-email';
         });
     }
 
     getFirstName() {
         return Storage.get({ key: 'profile' }).then((x: any) => {
-            return JSON.parse(x.value)?.firstName || '';
+            return JSON.parse(x.value)?.firstName || 'test-name';
         });
     }
 
