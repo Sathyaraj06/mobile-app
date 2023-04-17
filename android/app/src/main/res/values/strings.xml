@@ -1,0 +1,7 @@
+<?xml version='1.0' encoding='utf-8'?>
+<resources>
+    <string name="app_name">evis</string>
+    <string name="title_activity_main">evis</string>
+    <string name="package_name">evis.app</string>
+    <string name="custom_url_scheme">evis.app</string>
+</resources>

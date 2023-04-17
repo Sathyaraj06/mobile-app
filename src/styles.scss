@@ -1,0 +1,38 @@
+/* You can add global styles to this file, and also import other style files */
+
+
+html,
+body {
+    margin: 0 !important;
+    padding: 0 !important;
+}
+
+* {
+    box-sizing: border-box !important;
+}
+
+html,
+body {
+    min-height: 100%;
+}
+
+body {
+    margin: 0;
+    font-family: Roboto, "Helvetica Neue", sans-serif;
+}
+
+button:focus,
+textarea:focus,
+input:focus,
+input[type]:focus,
+.uneditable-input:focus {
+    border-width: 1.5px;
+    outline: none !important;
+}
+
+
+
+// 400	Normal (Regular)
+// 500	Medium
+// 600	Semi Bold (Demi Bold)
+// 700	Bold
